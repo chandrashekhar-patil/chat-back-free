@@ -15,11 +15,9 @@ app.use(express.json({ limit: "10mb" })); // For JSON payloads
 app.use(express.urlencoded({ limit: "10mb", extended: true })); // For URL-encoded payloads
 
 app.use(cookieParser());
-
-// CORS configuration
 app.use(
   cors({
-    origin: "https://chat-app-free.vercel.app/", // Replace with your frontend URL
+    origin: "https://chat-app-free.vercel.app",
     credentials: true, // Allow cookies
   })
 );
