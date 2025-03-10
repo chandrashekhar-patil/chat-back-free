@@ -19,7 +19,7 @@ app.use(cookieParser());
 // CORS configuration
 app.use(
   cors({
-    origin: "http://localhost:5173", // Allow your frontend URL
+    origin: "https://chat-app-free.vercel.app/", // Replace with your frontend URL
     credentials: true, // Allow cookies
   })
 );
