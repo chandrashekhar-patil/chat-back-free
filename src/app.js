@@ -15,10 +15,21 @@ app.use(express.json({ limit: "10mb" })); // For JSON payloads
 app.use(express.urlencoded({ limit: "10mb", extended: true })); // For URL-encoded payloads
 
 app.use(cookieParser());
+const allowedOrigins = [
+  "http://localhost:5173", // Local development
+  "https://chat-app-free.vercel.app", // Production
+];
+
 app.use(
   cors({
-    origin: "https://chat-app-free.vercel.app",
-    credentials: true, // Allow cookies
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
   })
 );
 
