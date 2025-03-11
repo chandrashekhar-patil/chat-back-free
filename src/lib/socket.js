@@ -8,7 +8,7 @@ const server = http.createServer(app);
 // Initialize Socket.IO with CORS configuration
 const io = new Server(server, {
   cors: {
-    origin: process.env.FRONTEND_URL || "http://localhost:5173", // Allow frontend origin
+    origin:"https://chat-app-free.vercel.app"
     methods: ["GET", "POST"], // Allowed HTTP methods
     credentials: true, // Allow credentials (cookies, authorization headers)
   },
